@@ -13,7 +13,7 @@ st.write(
 )
 
 name_on_order = st.text_input("Name on Smoothie")
-st.write("The name on your smoothie will be: ", name_on_order)
+#st.write("The name on your smoothie will be: ", name_on_order)
 
 cnx = st.connection("snowflake")
 session = cnx.session()
@@ -40,7 +40,7 @@ if ingredients_list:
         st.write('The search value for ', fruit,' is ', search_on, '.')
         
         st.subheader(fruit + 'Nutrition Information')
-        fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit)
+        fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + search_on)
         fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)
 
     #st.write(ingredients_string)
